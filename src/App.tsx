@@ -1,12 +1,4 @@
-import {
-  Container,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-  Typography,
-} from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import "./App.css";
 import LogoFatec from "./Components/LogoFatec";
 import { useState } from "react";
@@ -14,12 +6,29 @@ import Question from "./Components/Question/Question";
 import Questions from "./Resources/Questions";
 
 function App() {
+  const [countA, setCountA] = useState(0);
+  const [countB, setCountB] = useState(0);
+  const [countC, setCountC] = useState(0);
+  const [countD, setCountD] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
 
-  const [option, setOption] = useState('')
-
-  const handleOption = (e: string)  =>{
-      alert(e)
-  } 
+  const handleOption = (e: string) => {
+    setTotalCount(totalCount + 1);
+    switch (e) {
+      case "a":
+        setCountA(countA + 1);
+        break;
+      case "b":
+        setCountB(countB + 1);
+        break;
+      case "c":
+        setCountC(countC + 1);
+        break;
+      case "d":
+        setCountD(countD + 1);
+        break;
+    }
+  };
 
   return (
     <div className="mainContainer">
@@ -71,9 +80,37 @@ function App() {
 
       <Container
         maxWidth="md"
-        style={{ backgroundColor: "#6da1d1", padding: 40, marginTop: "40px", borderRadius:'10px' }}
+        style={{
+          backgroundColor: "#6da1d1",
+          padding: 40,
+          marginTop: "40px",
+          borderRadius: "10px",
+        }}
       >
-        <Question id={Questions[0].id} answers={Questions[0].answers} question={Questions[0].question} key={Questions[0].id} onSetAnswer={handleOption} value={option}/>
+        {Questions.map((item, i) => (
+          <>
+            <Question
+              id={item.id}
+              answers={item.answers}
+              question={item.question}
+              key={i}
+              onSetAnswer={handleOption}
+            />
+            <hr style={{ width: "100%", margin: "20px 0" }}></hr>
+          </>
+        ))}
+
+        {totalCount == 20 && (
+          <>
+            <Typography variant="body1" color={"white"} align="center">Total de opções A selecionadas: {countA}</Typography>
+            <hr style={{ width: "100%", margin: "10px 0" }}></hr>
+            <Typography variant="body1" color={"white"} align="center">Total de opções B selecionadas: {countB}</Typography>
+            <hr style={{ width: "100%", margin: "10px 0" }}></hr>
+            <Typography variant="body1" color={"white"} align="center">Total de opções C selecionadas: {countC}</Typography>
+            <hr style={{ width: "100%", margin: "10px 0" }}></hr>
+            <Typography variant="body1" color={"white"} align="center">Total de opções D selecionadas: {countD}</Typography>
+          </>
+        )}
       </Container>
     </div>
   );

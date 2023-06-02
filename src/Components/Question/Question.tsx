@@ -9,12 +9,14 @@ import {
   RadioGroup,
 } from "@mui/material";
 
-const Question = ({id, answers, question, onSetAnswer, value}: QuestionCardType) => {
+const Question = ({id, answers, question, onSetAnswer}: QuestionCardType) => {
 
   const [answered, setAnswered] = React.useState(false);
+  const [value,setValue] = React.useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onSetAnswer((event.target as HTMLInputElement).value);
+    setValue(event.target.value);
     setAnswered(true)
   };
 
