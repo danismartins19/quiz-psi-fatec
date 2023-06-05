@@ -104,21 +104,66 @@ function App() {
 
         {totalCount == 20 && (
           <>
-            <Typography variant="body1" color={"white"} align="center">Total de opções A selecionadas: {countA}</Typography>
+            <Typography variant="body1" color={"white"} align="center">
+              Total de opções A selecionadas: {countA}
+            </Typography>
             <hr style={{ width: "100%", margin: "10px 0" }}></hr>
-            <Typography variant="body1" color={"white"} align="center">Total de opções B selecionadas: {countB}</Typography>
+            <Typography variant="body1" color={"white"} align="center">
+              Total de opções B selecionadas: {countB}
+            </Typography>
             <hr style={{ width: "100%", margin: "10px 0" }}></hr>
-            <Typography variant="body1" color={"white"} align="center">Total de opções C selecionadas: {countC}</Typography>
+            <Typography variant="body1" color={"white"} align="center">
+              Total de opções C selecionadas: {countC}
+            </Typography>
             <hr style={{ width: "100%", margin: "10px 0" }}></hr>
-            <Typography variant="body1" color={"white"} align="center">Total de opções D selecionadas: {countD}</Typography>
+            <Typography variant="body1" color={"white"} align="center">
+              Total de opções D selecionadas: {countD}
+            </Typography>
 
-            <Typography variant="body1" style={{margin:"40px 0"}} color={"white"} align="center">De acordo com a resposta mais assinalada, identifique o quadro de sua vocação.</Typography>
-            {Results.map((item,i)=>(
-              <ResultCard key={i} title={item.title} description={item.description} careerTitle={item.careerTitle} careers={item.careers}/>
+            <Typography
+              variant="body1"
+              style={{ margin: "40px 0" }}
+              color={"white"}
+              align="center"
+            >
+              De acordo com a opção mais assinalada, identifique o quadro de
+              sua vocação.
+            </Typography>
+            {Results.map((item, i) => (
+              <ResultCard
+                key={i}
+                title={item.title}
+                description={item.description}
+                careerTitle={item.careerTitle}
+                careers={item.careers}
+              />
             ))}
-
           </>
         )}
+      </Container>
+      <Container
+        maxWidth="md"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          marginTop: "10px",
+        }}
+      >
+        <Typography variant="body1" color={"white"} align="center" marginTop={"20px"}>
+          Uma realização dos acadêmicos da turma de Psicologia
+        </Typography>
+        <hr style={{ width: "100%", margin: "10px 0" }}></hr>
+        <Typography
+          variant="body1"
+          align="center"
+          width={"80%"}
+          color={"white"}
+        >
+          Ana Jardim, João Andrade, Bruna Hey, Maria Gabriela Costanski, Thayane
+          Zegulhan, Sabrina Raimundo
+        </Typography>
       </Container>
     </div>
   );
