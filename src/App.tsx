@@ -140,6 +140,14 @@ function App() {
             ))}
           </>
         )}
+        {
+          totalCount < 20 && (
+            <Typography variant="body1" style={{textDecoration:'underline'}} color={"white"} align="center">
+              Responda todas as perguntas para exibir o resultado!
+            </Typography>
+          )
+
+        }
       </Container>
       <Container
         maxWidth="md"
