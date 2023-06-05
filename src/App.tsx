@@ -4,6 +4,8 @@ import LogoFatec from "./Components/LogoFatec";
 import { useState } from "react";
 import Question from "./Components/Question/Question";
 import Questions from "./Resources/Questions";
+import { ResultCard } from "./Components/ResultCard/ResultCard";
+import Results from "./Resources/Results";
 
 function App() {
   const [countA, setCountA] = useState(0);
@@ -109,6 +111,12 @@ function App() {
             <Typography variant="body1" color={"white"} align="center">Total de opções C selecionadas: {countC}</Typography>
             <hr style={{ width: "100%", margin: "10px 0" }}></hr>
             <Typography variant="body1" color={"white"} align="center">Total de opções D selecionadas: {countD}</Typography>
+
+            <Typography variant="body1" style={{margin:"40px 0"}} color={"white"} align="center">De acordo com a resposta mais assinalada, identifique o quadro de sua vocação.</Typography>
+            {Results.map((item,i)=>(
+              <ResultCard key={i} title={item.title} description={item.description} careerTitle={item.careerTitle} careers={item.careers}/>
+            ))}
+
           </>
         )}
       </Container>

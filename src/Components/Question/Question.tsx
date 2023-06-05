@@ -22,18 +22,18 @@ const Question = ({id, answers, question, onSetAnswer}: QuestionCardType) => {
 
   return (
     <>
-      <FormControl disabled= {answered}>
-        <FormLabel id="demo-controlled-radio-buttons-group">{id} - {question}</FormLabel>
+      <FormControl style={{color:"white"}} disabled= {answered}>
+        <FormLabel style={{color:"white"}} id="demo-controlled-radio-buttons-group">{id} - {question}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-controlled-radio-buttons-group"
           name="controlled-radio-buttons-group"
           value={value}
           onChange={handleChange}
         >
-          <FormControlLabel value="a" control={<Radio />} label={`a - ${answers.a}`} />
-          <FormControlLabel value="b" control={<Radio />} label={`b - ${answers.b}`} />
-          <FormControlLabel value="c" control={<Radio />} label={`c - ${answers.c}`} />
-          <FormControlLabel value="d" control={<Radio />} label={`d - ${answers.d}`} />
+          <FormControlLabel value="a" control={<Radio color='success'/>} label={`a - ${answers.a}`} />
+          <FormControlLabel value="b" control={<Radio color='success'/>} label={`b - ${answers.b}`} />
+          <FormControlLabel value="c" control={<Radio color='success'/>} label={`c - ${answers.c}`} />
+          <FormControlLabel value="d" control={<Radio color='success'/>} label={`d - ${answers.d}`} />
         </RadioGroup>
       </FormControl>
     </>
